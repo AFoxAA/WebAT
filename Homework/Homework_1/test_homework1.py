@@ -18,7 +18,7 @@ def test_step1(user_login: Any, post_title: str) -> None:
 
 
 def test_step2(user_login: Any, creating_a_post: dict[str, str], post_presence_by_description: str) -> None:
-    '''Создание поста и проверка, что дестовая фраза поля "descriptions" присутствует в списке ответа'''
+    '''Создание поста и проверка, что фраза поля "descriptions" присутствует в списке ответа'''
     S.post(url=data['address'], headers={'X-Auth-Token': user_login}, data=creating_a_post)
 
     response_result: Response = S.get(url=data['address'], headers={'X-Auth-Token': user_login})
