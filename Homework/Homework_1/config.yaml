@@ -1,0 +1,12 @@
+url: https://test-stand.gb.ru/gateway/login
+address: https://test-stand.gb.ru/api/posts
+
+post_data:
+  title: Тестовый пост №5
+  description: Создание пробного поста по API c помощью Python
+  content: Домашнее задание №1
+
+post_title: Новый пост
+post_presence_by_description: Создание пробного поста по API c помощью Python
+
+
