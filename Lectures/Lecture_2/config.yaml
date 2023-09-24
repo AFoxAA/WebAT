@@ -1,0 +1,9 @@
+address: https://test-stand.gb.ru/login
+sleep: 10
+browser: chrome
+directory_screenshot: screenshot
+
+
+username: //input[@type="text"]
+password: //input[@type="password"]
+button_login: //button[@form="login"]
