@@ -48,7 +48,7 @@ def test_positive_adding_a_post(field_title, field_description, field_content):
     site.driver.find_element(By.XPATH, data['field_content']).send_keys(field_content)
     site.driver.find_element(By.XPATH, data['save_post_button']).click()
 
-    result = site.driver.find_element(By.CSS_SELECTOR, 'h1.svelte-tv8alb').text
+    result = site.driver.find_element(By.CSS_SELECTOR, data['post_titles_on_the_page']).text
 
     site.save_screenshot_filename_in_directory(data['directory_screenshot'])
     site.close()

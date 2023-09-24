@@ -22,3 +22,4 @@ field_title: //*[@id="create-item"]/div/div/div[1]/div/label
 field_description: //*[@id="create-item"]/div/div/div[2]/div/label
 field_content: //*[@id="create-item"]/div/div/div[3]/div/label
 save_post_button: //*[@id="create-item"]/div/div/div[7]/div/button
+post_titles_on_the_page: h1.svelte-tv8alb
