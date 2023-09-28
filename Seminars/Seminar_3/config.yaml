@@ -1,0 +1,25 @@
+#Выбор браузера:
+browser: chrome
+
+#Тестовый сайт:
+address: https://test-stand.gb.ru/login
+
+#Пользовательские данные:
+login_valid: ANTA
+login_invalid: AN
+password_valid: 95ed42eb5c
+password_invalid: dsadfds
+
+#Название директории для сохранения скриншотов:
+directory_screenshot: screenshot
+
+#Локаторы страницы входа:
+username: //input[@type="text"]
+password: //input[@type="password"]
+button_login: button
+error: //*[@id="app"]/main/div/div/div[2]/h2
+input_field_height: span.mdc-text-field__ripple
+login_button_color: //button[@type="submit"]
+
+#Локаторы домашней страницы пользователя:
+account_name: //*[@id="app"]/main/nav/ul/li[3]/a
