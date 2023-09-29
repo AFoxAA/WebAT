@@ -34,13 +34,17 @@ class BasePage:
 
     def save_screenshot_filename_in_directory(self, directory: str) -> str:
         '''Сохранение скриншота в отдельной директории'''
-        if not os.path.exists(directory):
-            os.makedirs(directory)
+        try:
+            if not os.path.exists(directory):
+                os.makedirs(directory)
 
-        current_datetime: datetime = datetime.now()
-        formatted_datetime: str = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
-        capture_path: str = os.path.join(directory, f"{formatted_datetime}.png")
+            current_datetime: datetime = datetime.now()
+            formatted_datetime: str = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
+            capture_path: str = os.path.join(directory, f"{formatted_datetime}.png")
 
-        self.driver.save_screenshot(capture_path)
+            self.driver.save_screenshot(capture_path)
 
-        return capture_path
+            return capture_path
+        except Exception:
+            error_message = f'Ошибка при сохранении скриншота'
+            logging.exception(error_message)
