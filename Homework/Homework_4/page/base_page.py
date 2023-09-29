@@ -46,5 +46,5 @@ class BasePage:
 
             return capture_path
         except Exception:
-            error_message = f'Ошибка при сохранении скриншота'
+            error_message = 'Ошибка при сохранении скриншота. В файле ".yaml" отсутствует значение для директории сохранения скриншотов.'
             logging.exception(error_message)
