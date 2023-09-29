@@ -21,7 +21,12 @@ def test_invalid_login(initialize_web_driver: Generator, error_number: str) -> N
     login_page.click_on_the_login_button()
     time.sleep(2)
 
-    login_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+    try:
+        login_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+    except KeyError:
+        error_message = ('Ошибка при обращении к наименованию директории в файле ".yaml". '
+                         'Этот параметр не найден в файле конфигурации и не определен для сохранения скриншотов.')
+        logging.exception(error_message)
 
     assert login_page.checking_error_text() == error_number, "Test_invalid_login FAIL"
 
@@ -35,7 +40,12 @@ def test_invalid_password(initialize_web_driver: Generator, error_number: str) -
     login_page.click_on_the_login_button()
     time.sleep(2)
 
-    login_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+    try:
+        login_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+    except KeyError:
+        error_message = ('Ошибка при обращении к наименованию директории в файле ".yaml". '
+                         'Этот параметр не найден в файле конфигурации и не определен для сохранения скриншотов.')
+        logging.exception(error_message)
 
     assert login_page.checking_error_text() == error_number, "Test_invalid_password FAIL"
 

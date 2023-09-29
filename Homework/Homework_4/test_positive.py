@@ -20,7 +20,12 @@ def test_positive_input_field_height(initialize_web_driver: Generator, field_hei
     login_page.go_to_site()
     result = login_page.input_field_height()
 
-    login_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+    try:
+        login_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+    except KeyError:
+        error_message = ('Ошибка при обращении к наименованию директории в файле ".yaml". '
+                         'Этот параметр не найден в файле конфигурации и не определен для сохранения скриншотов.')
+        logging.exception(error_message)
 
     assert result == field_height, "Test_positive_input_field_height FAIL"
 
@@ -45,9 +50,14 @@ def test_positive_login_to_account(initialize_web_driver: Generator, expected_ac
     login_page.enter_password(file_data['password_valid'])
     login_page.click_on_the_login_button()
     result = homepage.account_name()
-
     time.sleep(2)
-    login_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+
+    try:
+        login_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+    except KeyError:
+        error_message = ('Ошибка при обращении к наименованию директории в файле ".yaml". '
+                         'Этот параметр не найден в файле конфигурации и не определен для сохранения скриншотов.')
+        logging.exception(error_message)
 
     assert result == expected_account_name, "Test_positive_login_to_account FAIL"
 
@@ -71,7 +81,12 @@ def test_positive_adding_a_post(initialize_web_driver: Generator, field_title: s
     post_creation_page.save_post_button()
     result = post_page.find_the_post_title_on_the_page()
 
-    login_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+    try:
+        login_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+    except KeyError:
+        error_message = ('Ошибка при обращении к наименованию директории в файле ".yaml". '
+                         'Этот параметр не найден в файле конфигурации и не определен для сохранения скриншотов.')
+        logging.exception(error_message)
 
     assert field_title == result, "Test_positive_login_to_account FAIL"
 
@@ -85,7 +100,12 @@ def test_positive_opening_the_contact_us_form(initialize_web_driver: Generator, 
     time.sleep(1)
     resulting_page_title = contact_us_page.finding_the_form_title_text()
 
-    contact_us_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+    try:
+        homepage.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+    except KeyError:
+        error_message = ('Ошибка при обращении к наименованию директории в файле ".yaml". '
+                         'Этот параметр не найден в файле конфигурации и не определен для сохранения скриншотов.')
+        logging.exception(error_message)
     time.sleep(1)
 
     assert resulting_page_title == form_name, "Test_positive_opening_the_contact_us_form FAIL"
@@ -101,7 +121,12 @@ def test_positive_form_contact_us(initialize_web_driver: Generator, your_name_fi
     contact_us_page.fill_your_email_field(your_email_field_contact_form)
     contact_us_page.fill_your_content_field(your_content_field_contact_form)
 
-    contact_us_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+    try:
+        contact_us_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
+    except KeyError:
+        error_message = ('Ошибка при обращении к наименованию директории в файле ".yaml". '
+                         'Этот параметр не найден в файле конфигурации и не определен для сохранения скриншотов.')
+        logging.exception(error_message)
 
     contact_us_page.click_on_the_contact_us_button()
     received_alert = contact_us_page.receiving_text_from_alert()
