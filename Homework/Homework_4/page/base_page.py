@@ -17,12 +17,15 @@ class BasePage:
         self.base_url: Any = file_data['address']
 
     def find_element(self, locator, time=5) -> Any:
-        return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator),
-                                                      message=f'Нет элемента с локатором {locator}')
-
-    def go_to_site(self):
         try:
-            self.driver.get(self.base_url)
+            return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator))
+        except Exception:
+            error_message = (f'Элемент с локатором {locator} не найден после ожидания {time} секунд')
+            logging.exception(error_message)
+
+    def go_to_site(self) -> Any:
+        try:
+            return self.driver.get(self.base_url)
         except Exception:
             error_message = (f'Не удается получить доступ к сайту {self.base_url}. '
                              f'Пожалуйста, убедитесь в корректности URL.')
