@@ -21,7 +21,13 @@ class BasePage:
                                                       message=f'Нет элемента с локатором {locator}')
 
     def go_to_site(self):
-        self.driver.get(self.base_url)
+        try:
+            self.driver.get(self.base_url)
+        except Exception:
+            error_message = (f'Не удается получить доступ к сайту {self.base_url}. '
+                             f'Пожалуйста, убедитесь в корректности URL.')
+            logging.exception(error_message)
+            pytest.fail(error_message, pytrace=False)
 
     def save_screenshot_filename_in_directory(self, directory: str) -> str:
         '''Сохранение скриншота в отдельной директории'''
