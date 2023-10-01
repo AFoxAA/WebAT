@@ -1,12 +1,13 @@
 import os
 import logging
+import time
 import pytest
 import yaml
 from typing import Any
 from datetime import datetime
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from ..error_package import SiteAccessError, LocatorError, ErrorWhenSavingScreenshot
+from ..error_package import SiteAccessError, LocatorError, ErrorWhenSavingScreenshot, AlertError
 
 with open('config.yaml') as file:
     file_data: Any = yaml.safe_load(file)
@@ -48,3 +49,20 @@ class BasePage:
         except Exception:
             error_message = ErrorWhenSavingScreenshot()
             logging.exception(error_message)
+
+    def receiving_text_from_alert(self) -> str | None:
+        try:
+            logging.info('Получаем текст из alert')
+
+            time.sleep(2)
+            alert: Any = self.driver.switch_to.alert
+            result: str = alert.text
+
+            logging.info('Закрываем alert')
+            alert.accept()
+
+            return result
+        except Exception:
+            error_message = AlertError()
+            logging.exception(error_message)
+            return None

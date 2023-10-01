@@ -43,15 +43,3 @@ class ContactUsHelper(BasePage):
         logging.info('Нажатие кнопки "CONTACT US"')
 
         self.find_element(ContactUsPageLocators.LOCATOR_CONTACT_US_BUTTON).click()
-
-    def receiving_text_from_alert(self):
-        logging.info('Получаем текст из alert')
-
-        time.sleep(2)
-        alert = self.driver.switch_to.alert
-        result = alert.text
-
-        logging.info('Закрываем alert')
-        alert.accept()
-
-        return result
