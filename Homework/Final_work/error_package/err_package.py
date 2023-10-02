@@ -44,3 +44,12 @@ class AlertError(Exception):
 
     def __str__(self) -> str:
         return self.message
+
+class TextInputError(Exception):
+    def __init__(self, locator: Any, word: Any) -> None:
+        self.locator: Any = locator
+        self.word: Any = word
+        self.message: str = f'Ошибка при вводе текста "{word}" в текстовое поле ввода "{locator}"'
+
+    def __str__(self) -> str:
+        return self.message

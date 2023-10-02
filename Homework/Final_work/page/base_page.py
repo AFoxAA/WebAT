@@ -7,7 +7,7 @@ from typing import Any
 from datetime import datetime
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from ..error_package import SiteAccessError, LocatorError, ErrorWhenSavingScreenshot, AlertError
+from ..error_package import SiteAccessError, LocatorError, ErrorWhenSavingScreenshot, AlertError, TextInputError
 
 with open('config.yaml') as file:
     file_data: Any = yaml.safe_load(file)
@@ -49,6 +49,21 @@ class BasePage:
         except Exception:
             error_message = ErrorWhenSavingScreenshot()
             logging.exception(error_message)
+
+    def entering_text_into_field(self, locator: Any, word: Any, description=None) -> bool:
+        element_name: Any = description if description else locator
+
+        logging.info(f'Отправить текст: "{word}", элементу: {element_name}')
+        field = self.find_element(locator)
+
+        try:
+            field.send_keys(word) if not field.get_attribute("value") else (field.clear(), field.send_keys(word))
+
+        except:
+            error_message = TextInputError(locator, word)
+            logging.exception(error_message)
+            return False
+        return True
 
     def receiving_text_from_alert(self) -> str | None:
         try:

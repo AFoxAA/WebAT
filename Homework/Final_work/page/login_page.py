@@ -18,18 +18,12 @@ class LoginPageLocators:
 
 class LoginPageHelper(BasePage):
     def enter_login(self, login: str) -> None:
-        logging.info(f'Отправлять логин элементу {LoginPageLocators.LOCATOR_LOGIN_FIELD[1]}')
-
-        login_field = self.find_element(LoginPageLocators.LOCATOR_LOGIN_FIELD)
-        login_field.clear()
-        login_field.send_keys(login)
+        self.entering_text_into_field(LoginPageLocators.LOCATOR_LOGIN_FIELD, login,
+                                      description='"Поле ввода логина на странице авторизации"')
 
     def enter_password(self, password: str) -> None:
-        logging.info(f'Отправлять пароль элементу {LoginPageLocators.LOCATOR_PASSWORD_FIELD[1]}')
-
-        login_field = self.find_element(LoginPageLocators.LOCATOR_PASSWORD_FIELD)
-        login_field.clear()
-        login_field.send_keys(password)
+        self.entering_text_into_field(LoginPageLocators.LOCATOR_PASSWORD_FIELD, password,
+                                      description='"Поле ввода password на странице авторизации"')
 
     def click_on_the_login_button(self) -> None:
         logging.info('Нажатие кнопки входа в личный кабинет пользователя')
@@ -59,3 +53,12 @@ class LoginPageHelper(BasePage):
         result = button_color.value_of_css_property('color')
 
         return result
+
+    def clear_login_and_password_fields(self):
+        login_field = self.find_element(By.ID,
+                                        'login')  # Замените 'login' на атрибут, соответствующий полю ввода логина
+        password_field = self.find_element(By.ID,
+                                           'password')  # Замените 'password' на атрибут, соответствующий полю ввода пароля
+
+        login_field.clear()
+        password_field.clear()

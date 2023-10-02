@@ -16,19 +16,16 @@ class PostCreationLocators:
 
 class PostCreationPageHelper(BasePage):
     def fill_title_field(self, title_text: str) -> None:
-        logging.info('Добавление информации в поле title')
-
-        self.find_element(PostCreationLocators.LOCATOR_FIELD_TITLE).send_keys(title_text)
+        self.entering_text_into_field(PostCreationLocators.LOCATOR_FIELD_TITLE, title_text,
+                                      description='"Поле ввода Title на странице создания постов Create Post"')
 
     def fill_description_field(self, description_text: str) -> None:
-        logging.info('Добавление информации в поле description')
-
-        self.find_element(PostCreationLocators.LOCATOR_FIELD_DESCRIPTION).send_keys(description_text)
+        self.entering_text_into_field(PostCreationLocators.LOCATOR_FIELD_DESCRIPTION, description_text,
+                                      description='"Поле ввода Description на странице создания постов Create Post"')
 
     def fill_content_field(self, content_text: str) -> None:
-        logging.info('Добавление информации в поле content')
-
-        self.find_element(PostCreationLocators.LOCATOR_FIELD_CONTENT).send_keys(content_text)
+        self.entering_text_into_field(PostCreationLocators.LOCATOR_FIELD_CONTENT, content_text,
+                                      description='"Поле ввода Content на странице создания постов Create Post"')
 
     def save_post_button(self) -> None:
         logging.info('Нажатие кнопки сохранения поста')

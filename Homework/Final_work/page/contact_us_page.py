@@ -25,19 +25,16 @@ class ContactUsHelper(BasePage):
         return form_name
 
     def fill_your_name_field(self, text_your_name: str):
-        logging.info(f'Отправлять имя элементу {ContactUsPageLocators.LOCATOR_FIELD_YOUR_NAME[1]}')
-
-        self.find_element(ContactUsPageLocators.LOCATOR_FIELD_YOUR_NAME).send_keys(text_your_name)
+        self.entering_text_into_field(ContactUsPageLocators.LOCATOR_FIELD_YOUR_NAME, text_your_name,
+                                      description='"Поле ввода Your name на странице Contact us!"')
 
     def fill_your_email_field(self, text_your_email: str) -> None:
-        logging.info(f'Отправлять email элементу {ContactUsPageLocators.LOCATOR_FIELD_YOUR_NAME[1]}')
-
-        self.find_element(ContactUsPageLocators.LOCATOR_FIELD_YOUR_EMAIL).send_keys(text_your_email)
+        self.entering_text_into_field(ContactUsPageLocators.LOCATOR_FIELD_YOUR_EMAIL, text_your_email,
+                                      description='"Поле ввода Your email на странице Contact us!"')
 
     def fill_your_content_field(self, text_content: str) -> None:
-        logging.info(f'Отправлять content элементу {ContactUsPageLocators.LOCATOR_FIELD_YOUR_CONTENT[1]}')
-
-        self.find_element(ContactUsPageLocators.LOCATOR_FIELD_YOUR_CONTENT).send_keys(text_content)
+        self.entering_text_into_field(ContactUsPageLocators.LOCATOR_FIELD_YOUR_CONTENT, text_content,
+                                      description='"Поле ввода Content на странице Contact us!"')
 
     def click_on_the_contact_us_button(self):
         logging.info('Нажатие кнопки "CONTACT US"')
