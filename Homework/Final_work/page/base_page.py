@@ -7,8 +7,7 @@ from typing import Any
 from datetime import datetime
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from ..error_package import (SiteAccessError, LocatorError, ErrorWhenSavingScreenshot, AlertError,
-                             TextInputError, ErrorWhenClicking)
+from ..error_package import *
 
 with open('config.yaml') as file:
     file_data: Any = yaml.safe_load(file)
@@ -79,6 +78,27 @@ class BasePage:
             return False
         logging.info(f'Клик {element_name}')
         return True
+
+    def get_text_from_element(self, locator: Any, description=None) -> Any | None:
+        element_name: Any = description if description else locator
+        find_field: Any = self.find_element(locator, time=2)
+        if not find_field:
+            return None
+        try:
+            get_text = find_field.text
+        except:
+            error_message = ErrorReceivingText(element_name)
+            logging.exception(error_message)
+            return None
+        logging.info(f'Получен текст "{get_text}" {element_name}')
+        return get_text
+
+    def check_color_and_height_element(self, locator: Any, parameter: str, description=None) -> str:
+        element_name: Any = description if description else locator
+        get_element: Any = self.find_element(locator)
+        result = get_element.value_of_css_property(parameter)
+        logging.info(f'Проверка {element_name}')
+        return result
 
     def receiving_text_from_alert(self) -> str | None:
         try:

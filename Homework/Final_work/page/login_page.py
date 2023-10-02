@@ -30,25 +30,13 @@ class LoginPageHelper(BasePage):
                               description='на кнопку "Login" на странице авторизации')
 
     def checking_error_text(self) -> str:
-        error_massage = self.find_element(LoginPageLocators.LOCATOR_ERROR_MESSAGE, time=2)
-        text_error = error_massage.text
-
-        logging.info(f'Нахождение текста {text_error} в поле ошибки {LoginPageLocators.LOCATOR_ERROR_MESSAGE[1]}')
-
-        return text_error
+        return self.get_text_from_element(LoginPageLocators.LOCATOR_ERROR_MESSAGE,
+                                          description='для проверки ошибки входа пользователя в личный кабинет')
 
     def input_field_height(self) -> str:
-        logging.info('Проверка высоты полей логина и пароля')
-
-        field_height = self.find_element(LoginPageLocators.LOCATOR_INPUT_FIELD_HEIGHT)
-        result = field_height.value_of_css_property('height')
-
-        return result
+        return self.check_color_and_height_element(LoginPageLocators.LOCATOR_INPUT_FIELD_HEIGHT, 'height',
+                                                   description='полей логина и пароля по высоте на странице авторизации')
 
     def login_button_color(self) -> str:
-        logging.info('Проверка цвета кнопки входа в личный кабинет пользователя')
-
-        button_color = self.find_element(LoginPageLocators.LOCATOR_LOGIN_BUTTON_COLOR)
-        result = button_color.value_of_css_property('color')
-
-        return result
+        return self.check_color_and_height_element(LoginPageLocators.LOCATOR_LOGIN_BUTTON_COLOR, 'color',
+                                                   description='цвета кнопки "Login" на странице авторизации')

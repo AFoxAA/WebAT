@@ -13,9 +13,5 @@ class PostPageLocators:
 
 class PostPageHelper(BasePage):
     def find_the_post_title_on_the_page(self) -> str:
-        post_title = self.find_element(PostPageLocators.LOCATOR_TITLE_ON_THE_PAGE, time=2)
-        post_text = post_title.text
-
-        logging.info(f'Нахождение текста {post_text} в поле {PostPageLocators.LOCATOR_TITLE_ON_THE_PAGE[1]}')
-
-        return post_text
+        return self.get_text_from_element(PostPageLocators.LOCATOR_TITLE_ON_THE_PAGE,
+                                          description='по полю Title для проверки создания поста на странице поста')

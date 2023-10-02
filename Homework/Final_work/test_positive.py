@@ -67,10 +67,7 @@ def test_positive_adding_a_post(initialize_web_driver: Generator, field_title: s
     post_creation_page = PostCreationPageHelper(initialize_web_driver)
     post_page = PostPageHelper(initialize_web_driver)
 
-    time.sleep(1)
     homepage.button_create_new_post()
-    time.sleep(1)
-
     post_creation_page.fill_title_field(field_title)
     post_creation_page.fill_description_field(field_description)
     post_creation_page.fill_content_field(field_content)

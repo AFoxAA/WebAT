@@ -62,3 +62,12 @@ class ErrorWhenClicking(Exception):
 
     def __str__(self) -> str:
         return self.message
+
+
+class ErrorReceivingText(Exception):
+    def __init__(self, element_name: Any) -> None:
+        self.element_name: Any = element_name
+        self.message: str = f'Ошибка при получении текста из {element_name}'
+
+    def __str__(self) -> str:
+        return self.message

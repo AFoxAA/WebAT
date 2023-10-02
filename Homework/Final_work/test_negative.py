@@ -17,7 +17,7 @@ def test_invalid_login(initialize_web_driver: Generator, error_number: str, inva
     login_page.enter_login(file_data['login_invalid'])
     login_page.enter_password(file_data['password_valid'])
     login_page.click_on_the_login_button()
-    time.sleep(2)
+    time.sleep(1)
 
     try:
         login_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])
@@ -35,7 +35,7 @@ def test_invalid_password(initialize_web_driver: Generator, error_number: str, i
     login_page.enter_login(file_data['login_valid'])
     login_page.enter_password(file_data['password_invalid'])
     login_page.click_on_the_login_button()
-    time.sleep(2)
+    time.sleep(1)
 
     try:
         login_page.save_screenshot_filename_in_directory(file_data['directory_screenshot'])

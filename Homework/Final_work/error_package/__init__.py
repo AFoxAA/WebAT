@@ -5,3 +5,4 @@ from .err_package import ErrorWhenSavingScreenshot
 from .err_package import AlertError
 from .err_package import TextInputError
 from .err_package import ErrorWhenClicking
+from .err_package import ErrorReceivingText

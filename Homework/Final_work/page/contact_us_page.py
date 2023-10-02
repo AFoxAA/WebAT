@@ -1,4 +1,3 @@
-import time
 import logging
 import yaml
 from selenium.webdriver.common.by import By
@@ -18,11 +17,7 @@ class ContactUsPageLocators:
 
 class ContactUsHelper(BasePage):
     def finding_the_form_title_text(self) -> str:
-        form_name = self.find_element(ContactUsPageLocators.LOCATOR_FORM_NAME, time=2).text
-
-        logging.info(f'Нахождение текста "{form_name}" в поле {ContactUsPageLocators.LOCATOR_FORM_NAME[1]}')
-
-        return form_name
+        return self.get_text_from_element(ContactUsPageLocators.LOCATOR_FORM_NAME, description='в заголовке формы')
 
     def fill_your_name_field(self, text_your_name: str):
         self.entering_text_into_field(ContactUsPageLocators.LOCATOR_FIELD_YOUR_NAME, text_your_name,

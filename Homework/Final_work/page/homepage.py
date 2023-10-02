@@ -16,9 +16,8 @@ class HomepageLocators:
 
 class HomepageHelper(BasePage):
     def account_name(self) -> str:
-        logging.info('Проверка входа пользователя в личный кабинет')
-
-        return self.find_element(HomepageLocators.LOCATOR_ACCOUNT_NAME).text
+        return self.get_text_from_element(HomepageLocators.LOCATOR_ACCOUNT_NAME,
+                                          description='для проверки входа пользователя в личный кабинет')
 
     def button_create_new_post(self) -> None:
         self.click_on_element(HomepageLocators.LOCATOR_CREATE_NEW_POST,
