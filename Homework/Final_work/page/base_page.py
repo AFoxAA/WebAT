@@ -53,7 +53,7 @@ class BasePage:
     def entering_text_into_field(self, locator: Any, word: Any, description=None) -> bool:
         element_name: Any = description if description else locator
 
-        logging.info(f'Отправить текст: "{word}", элементу: {element_name}')
+        logging.debug(f'Отправить текст: "{word}", элементу: {element_name}')
         field = self.find_element(locator)
 
         try:
@@ -76,12 +76,12 @@ class BasePage:
             error_message = ErrorWhenClicking()
             logging.exception(error_message)
             return False
-        logging.info(f'Клик {element_name}')
+        logging.debug(f'Клик {element_name}')
         return True
 
     def get_text_from_element(self, locator: Any, description=None) -> Any | None:
         element_name: Any = description if description else locator
-        find_field: Any = self.find_element(locator, time=2)
+        find_field: Any = self.find_element(locator, time=5)
         if not find_field:
             return None
         try:
@@ -90,14 +90,14 @@ class BasePage:
             error_message = ErrorReceivingText(element_name)
             logging.exception(error_message)
             return None
-        logging.info(f'Получен текст "{get_text}" {element_name}')
+        logging.debug(f'Получен текст "{get_text}" {element_name}')
         return get_text
 
     def check_color_and_height_element(self, locator: Any, parameter: str, description=None) -> str:
         element_name: Any = description if description else locator
         get_element: Any = self.find_element(locator)
         result = get_element.value_of_css_property(parameter)
-        logging.info(f'Проверка {element_name}')
+        logging.debug(f'Проверка {element_name}')
         return result
 
     def receiving_text_from_alert(self) -> str | None:
