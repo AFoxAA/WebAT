@@ -14,31 +14,37 @@ password_invalid: dsadfds
 #Название директории для сохранения скриншотов:
 directory_screenshot: screenshot
 
-#Локаторы страницы входа:
-username: //input[@type="text"]
-password: //input[@type="password"]
-button_login: button
-error: //*[@id="app"]/main/div/div/div[2]/h2
-input_field_height: span.mdc-text-field__ripple
-login_button_color: //button[@type="submit"]
+XPATH:
+  #Локаторы домашней страницы пользователя:
+  LOCATOR_ACCOUNT_NAME: //*[@id="app"]/main/nav/ul/li[3]
+  LOCATOR_CONTACT: //*[@id="app"]/main/nav/ul/li[2]
+  LOCATOR_BUTTON_LOGOUT: //*[@id="app"]/main/nav/ul/li[3]/div/ul/li[3]/span[2]
 
-#Локаторы домашней страницы пользователя:
-account_name: //*[@id="app"]/main/nav/ul/li[3]
-button_create_new_post: create-btn
-contact: //*[@id="app"]/main/nav/ul/li[2]
-button_logout: //*[@id="app"]/main/nav/ul/li[3]/div/ul/li[3]/span[2]
+  #Локаторы страницы входа:
+  LOCATOR_LOGIN_FIELD: //input[@type="text"]
+  LOCATOR_PASSWORD_FIELD: //input[@type="password"]
+  LOCATOR_ERROR_MESSAGE: //*[@id="app"]/main/div/div/div[2]/h2
+  LOCATOR_LOGIN_BUTTON_COLOR: //button[@type="submit"]
 
-#Локаторы создание поста:
-field_title: //*[@id="create-item"]/div/div/div[1]/div/label
-field_description: //*[@id="create-item"]/div/div/div[2]/div/label
-field_content: //*[@id="create-item"]/div/div/div[3]/div/label
-save_post_button: //*[@id="create-item"]/div/div/div[7]/div/button
-title_on_the_page: h1.svelte-tv8alb
+  #Локаторы создание поста:
+  LOCATOR_FIELD_TITLE: //*[@id="create-item"]/div/div/div[1]/div/label
+  LOCATOR_FIELD_DESCRIPTION: //*[@id="create-item"]/div/div/div[2]/div/label
+  LOCATOR_FIELD_CONTENT: //*[@id="create-item"]/div/div/div[3]/div/label
+  LOCATOR_SAVE_POST_BUTTON: //*[@id="create-item"]/div/div/div[7]/div/button
 
+  #Локаторы формы "Contact":
+  LOCATOR_FORM_NAME: //*[@id="app"]/main/div/div/h1
+  LOCATOR_FIELD_YOUR_NAME: //*[@id="contact"]/div[1]/label
+  LOCATOR_FIELD_YOUR_EMAIL: //*[@id="contact"]/div[2]/label
+  LOCATOR_FIELD_YOUR_CONTENT: //*[@id="contact"]/div[3]/label
+  LOCATOR_CONTACT_US_BUTTON: //*[@id="contact"]/div[4]/button
+CSS:
+  #Локаторы страницы входа:
+  LOCATOR_BUTTON_LOGIN: button
+  LOCATOR_INPUT_FIELD_HEIGHT: span.mdc-text-field__ripple
 
-#Локаторы формы "Contact":
-form_name: //*[@id="app"]/main/div/div/h1
-field_your_name: //*[@id="contact"]/div[1]/label
-field_your_email: //*[@id="contact"]/div[2]/label
-field_your_content: //*[@id="contact"]/div[3]/label
-contact_us_button: //*[@id="contact"]/div[4]/button
+  #Локаторы создание поста:
+  LOCATOR_TITLE_ON_THE_PAGE: h1.svelte-tv8alb
+ID:
+  #Локаторы домашней страницы пользователя:
+  LOCATOR_CREATE_NEW_POST: create-btn
