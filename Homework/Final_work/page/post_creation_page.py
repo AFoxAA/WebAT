@@ -28,6 +28,5 @@ class PostCreationPageHelper(BasePage):
                                       description='"Поле ввода Content на странице создания постов Create Post"')
 
     def save_post_button(self) -> None:
-        logging.info('Нажатие кнопки сохранения поста')
-
-        self.find_element(PostCreationLocators.LOCATOR_SAVE_POST_BUTTON).click()
+        self.click_on_element(PostCreationLocators.LOCATOR_SAVE_POST_BUTTON,
+                              description='на кнопку "SAVE" на странице создания постов Create Post')

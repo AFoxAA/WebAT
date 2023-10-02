@@ -37,6 +37,4 @@ class ContactUsHelper(BasePage):
                                       description='"Поле ввода Content на странице Contact us!"')
 
     def click_on_the_contact_us_button(self):
-        logging.info('Нажатие кнопки "CONTACT US"')
-
-        self.find_element(ContactUsPageLocators.LOCATOR_CONTACT_US_BUTTON).click()
+        self.click_on_element(ContactUsPageLocators.LOCATOR_CONTACT_US_BUTTON, description='на кнопку "CONTACT US"')

@@ -3,7 +3,6 @@ import yaml
 from selenium.webdriver.common.by import By
 from .base_page import BasePage
 
-
 with open('config.yaml') as file:
     file_data = yaml.safe_load(file)
 
@@ -22,21 +21,17 @@ class HomepageHelper(BasePage):
         return self.find_element(HomepageLocators.LOCATOR_ACCOUNT_NAME).text
 
     def button_create_new_post(self) -> None:
-        logging.info('Нажатие на кнопку создания поста')
+        self.click_on_element(HomepageLocators.LOCATOR_CREATE_NEW_POST,
+                              description='на кнопку "Create new post" на домашней странице')
 
-        self.find_element(HomepageLocators.LOCATOR_CREATE_NEW_POST).click()
-
-    def go_to_contact(self) -> str:
-        logging.info('Проверка открытия формы "Contact_us"')
-
-        return self.find_element(HomepageLocators.LOCATOR_CONTACT).click()
+    def go_to_contact(self) -> None:
+        self.click_on_element(HomepageLocators.LOCATOR_CONTACT,
+                              description='на кнопку "Contact" на домашней странице для открытия формы "Contact_us"')
 
     def account_name_button(self) -> None:
-        logging.info('Нажатие на кнопку имени пользователя "Hello, ..."')
-
-        self.find_element(HomepageLocators.LOCATOR_ACCOUNT_NAME).click()
+        self.click_on_element(HomepageLocators.LOCATOR_ACCOUNT_NAME,
+                              description='на кнопку имени пользователя "Hello, ..." на домашней странице')
 
     def exit_personal_page(self) -> None:
-        logging.info('Нажатие на кнопку "logout"')
-
-        self.find_element(HomepageLocators.LOCATOR_BUTTON_LOGOUT).click()
+        self.click_on_element(HomepageLocators.LOCATOR_BUTTON_LOGOUT,
+                              description='на кнопку "logout" в выпадающем меню  "Hello, ..." на домашней странице')

@@ -7,7 +7,8 @@ from typing import Any
 from datetime import datetime
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from ..error_package import SiteAccessError, LocatorError, ErrorWhenSavingScreenshot, AlertError, TextInputError
+from ..error_package import (SiteAccessError, LocatorError, ErrorWhenSavingScreenshot, AlertError,
+                             TextInputError, ErrorWhenClicking)
 
 with open('config.yaml') as file:
     file_data: Any = yaml.safe_load(file)
@@ -63,6 +64,20 @@ class BasePage:
             error_message = TextInputError(locator, word)
             logging.exception(error_message)
             return False
+        return True
+
+    def click_on_element(self, locator: Any, description=None):
+        element_name: Any = description if description else locator
+        find_element = self.find_element(locator)
+        if not find_element:
+            return False
+        try:
+            find_element.click()
+        except:
+            error_message = ErrorWhenClicking()
+            logging.exception(error_message)
+            return False
+        logging.info(f'Клик {element_name}')
         return True
 
     def receiving_text_from_alert(self) -> str | None:

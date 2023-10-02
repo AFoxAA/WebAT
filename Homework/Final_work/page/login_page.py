@@ -26,9 +26,8 @@ class LoginPageHelper(BasePage):
                                       description='"Поле ввода password на странице авторизации"')
 
     def click_on_the_login_button(self) -> None:
-        logging.info('Нажатие кнопки входа в личный кабинет пользователя')
-
-        self.find_element(LoginPageLocators.LOCATOR_BUTTON_LOGIN).click()
+        self.click_on_element(LoginPageLocators.LOCATOR_BUTTON_LOGIN,
+                              description='на кнопку "Login" на странице авторизации')
 
     def checking_error_text(self) -> str:
         error_massage = self.find_element(LoginPageLocators.LOCATOR_ERROR_MESSAGE, time=2)
@@ -53,12 +52,3 @@ class LoginPageHelper(BasePage):
         result = button_color.value_of_css_property('color')
 
         return result
-
-    def clear_login_and_password_fields(self):
-        login_field = self.find_element(By.ID,
-                                        'login')  # Замените 'login' на атрибут, соответствующий полю ввода логина
-        password_field = self.find_element(By.ID,
-                                           'password')  # Замените 'password' на атрибут, соответствующий полю ввода пароля
-
-        login_field.clear()
-        password_field.clear()
