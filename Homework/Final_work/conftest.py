@@ -1,3 +1,4 @@
+import logging
 from typing import Any, Generator
 import pytest
 import yaml
@@ -5,6 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
+from Homework_4 import SoapAPI
 
 with open('config.yaml', encoding='utf-8') as file:
     file_data: Any = yaml.safe_load(file)
@@ -33,6 +35,56 @@ def initialize_web_driver() -> Generator:
     yield driver
 
     driver.quit()
+
+
+@pytest.fixture()
+def api_page():
+    with open('config.yaml', encoding='utf-8') as f:
+        data = yaml.safe_load(f)
+
+    if not data['wsdl']:
+        logging.exception("Отсутствует ссылка на WSDL в config.yaml")
+        return None
+
+    try:
+        return SoapAPI(wsdl_url=data['wsdl'])
+    except Exception:
+        logging.exception(f"Ошибка подключения к WSDL: проверьте корректность ссылки")
+        return None
+
+
+@pytest.fixture()
+def checking_correct_word():
+    return 'ЗАПУСК ПОЗИТИВНОГО ТЕСТА ДЛЯ ПРОВЕРКИ СЛОВА'
+
+
+@pytest.fixture()
+def valid_word() -> str:
+    return 'молоко'
+
+
+@pytest.fixture()
+def invalid_word() -> str:
+    return 'малоко'
+
+
+@pytest.fixture()
+def post_creation_check():
+    return 'ЗАПУСК ПОЗИТИВНОГО ТЕСТА ДЛЯ ПРОВЕРКИ СОЗДАНИЯ ПОСТА С ПОМОЩЬЮ RESTAPI'
+
+
+@pytest.fixture()
+def test_data():
+    data_for_post = {"title": "Тестовый пост №5",
+                     "description": "Создание пробного поста по API c помощью Python",
+                     "content": "Домашнее задание №1"}
+
+    return data_for_post
+
+
+@pytest.fixture()
+def post_presence_by_description() -> str:
+    return 'Создание прбного поста по API c помощью Python'
 
 
 @pytest.fixture()
