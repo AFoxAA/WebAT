@@ -3,4 +3,7 @@ from .page.homepage import HomepageHelper
 from .page.login_page import LoginPageHelper
 from .page.post_creation_page import PostCreationPageHelper
 from .page.post_page import PostPageHelper
+from .page.api_page import SoapAPI
+from .page.api_page import RestAPI
 from .error_package.err_package import DirectoryNameError
+from .error_package.err_package import ErrorApi

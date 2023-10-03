@@ -2,6 +2,12 @@
 browser: chrome
 sleep: 3
 
+# Тестовые данные для API
+wsdl: https://speller.yandex.net/services/spellservice?WSDL
+url_login: https://test-stand.gb.ru/gateway/login
+url_posts: https://test-stand.gb.ru/api/posts
+
+
 #Тестовый сайт:
 address: https://test-stand.gb.ru/login
 
