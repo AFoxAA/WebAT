@@ -71,3 +71,46 @@ class ErrorReceivingText(Exception):
 
     def __str__(self) -> str:
         return self.message
+
+
+class ErrorReceivingToken(Exception):
+    def __init__(self, status_code: int) -> None:
+        self.status_code: int = status_code
+        self.message: str = f'Ошибка при получении токена, код ошибки: {self.status_code}'
+
+    def __str__(self) -> str:
+        return self.message
+
+
+class ErrorEntranceInvalidUrl(Exception):
+    def __init__(self, url_login: int) -> None:
+        self.url_login: Any = url_login
+        self.message: str = f'Ошибка: неверный URL для входа: {self.url_login}'
+
+    def __str__(self) -> str:
+        return self.message
+
+
+class InvalidUrlCreatePost(Exception):
+    def __init__(self, url_posts: int) -> None:
+        self.url_posts: Any = url_posts
+        self.message: str = f"Ошибка: неверный URL для создания поста: {self.url_posts}"
+
+    def __str__(self) -> str:
+        return self.message
+
+
+class ErrorReceivingPostRequest(Exception):
+    def __init__(self) -> None:
+        self.message: str = 'Ошибка: не удалось получить запрос поста'
+
+    def __str__(self) -> str:
+        return self.message
+
+
+class ErrorApi(Exception):
+    def __init__(self) -> None:
+        self.message: str = 'Тест не пройден с исключением: '
+
+    def __str__(self) -> str:
+        return self.message
