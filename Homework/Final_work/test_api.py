@@ -1,6 +1,6 @@
 import logging
 import pytest
-from Homework_4 import RestAPI, ErrorApi
+from Final_work import RestAPI, ErrorApi
 
 
 def test_positive_rest_api_create_post(test_data, post_presence_by_description, post_creation_check):

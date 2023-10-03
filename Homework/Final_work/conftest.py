@@ -6,7 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
-from Homework_4 import SoapAPI
+from Final_work import SoapAPI
 
 with open('config.yaml', encoding='utf-8') as file:
     file_data: Any = yaml.safe_load(file)
@@ -84,7 +84,7 @@ def test_data():
 
 @pytest.fixture()
 def post_presence_by_description() -> str:
-    return 'Создание прбного поста по API c помощью Python'
+    return 'Создание пробного поста по API c помощью Python'
 
 
 @pytest.fixture()
@@ -159,12 +159,12 @@ def error_number() -> str:
 
 @pytest.fixture()
 def field_title():
-    return 'Тестовый пост №5'
+    return 'Тестовый пост №6'
 
 
 @pytest.fixture()
 def field_description():
-    return 'Описание тестового поста №5'
+    return 'Описание тестового поста №6'
 
 
 @pytest.fixture()

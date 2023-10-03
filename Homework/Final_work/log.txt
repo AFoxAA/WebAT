@@ -1,0 +1,31 @@
+2023-16-10/03/23 11:16:17 INFO ЗАПУСК ПОЗИТИВНОГО ТЕСТА ДЛЯ ПРОВЕРКИ СОЗДАНИЯ ПОСТА С ПОМОЩЬЮ RESTAPI
+2023-16-10/03/23 11:16:17 INFO Получение токена для входа
+2023-16-10/03/23 11:16:18 INFO Отправка данных на сервер
+2023-16-10/03/23 11:16:19 INFO Получение данных с сервера
+2023-16-10/03/23 11:16:19 WARNING Forcing soap:address location to HTTPS
+2023-16-10/03/23 11:16:19 WARNING Forcing soap:address location to HTTPS
+2023-16-10/03/23 11:16:19 INFO ЗАПУСК ПОЗИТИВНОГО ТЕСТА ДЛЯ ПРОВЕРКИ СЛОВА
+2023-16-10/03/23 11:16:19 INFO ====== WebDriver manager ======
+2023-16-10/03/23 11:16:20 INFO Get LATEST chromedriver version for google-chrome
+2023-16-10/03/23 11:16:20 INFO Get LATEST chromedriver version for google-chrome
+2023-16-10/03/23 11:16:20 INFO There is no [win64] chromedriver "117.0.5938.132" for browser google-chrome "117.0.5938.132" in cache
+2023-16-10/03/23 11:16:20 INFO Get LATEST chromedriver version for google-chrome
+2023-16-10/03/23 11:16:21 INFO WebDriver version 117.0.5938.92 selected
+2023-16-10/03/23 11:16:21 INFO Modern chrome version https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/117.0.5938.92/win32/chromedriver-win32.zip
+2023-16-10/03/23 11:16:21 INFO About to download new driver from https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/117.0.5938.92/win32/chromedriver-win32.zip
+2023-16-10/03/23 11:16:21 INFO Driver downloading response is 200
+2023-16-10/03/23 11:16:22 INFO Get LATEST chromedriver version for google-chrome
+2023-16-10/03/23 11:16:22 INFO Driver has been saved in cache [C:\Users\Антон\.wdm\drivers\chromedriver\win64\117.0.5938.132]
+2023-16-10/03/23 11:16:23 INFO ЗАПУСК НЕГАТИВНОГО ТЕСТА С НЕВАЛИДНЫМ ЛОГИНОМ
+2023-16-10/03/23 11:16:25 INFO ЗАПУСК НЕГАТИВНОГО ТЕСТА С НЕВАЛИДНЫМ ПАРОЛЕМ
+2023-16-10/03/23 11:16:27 INFO ЗАПУСК НЕГАТИВНОГО ТЕСТА С ПУСТЫМИ ПОЛЯМИ ФОРМЫ "CONTACT_US"
+2023-16-10/03/23 11:16:29 INFO Получаем текст из alert
+2023-16-10/03/23 11:16:31 INFO Закрываем alert
+2023-16-10/03/23 11:16:31 INFO ЗАПУСК ПОЗИТИВНОГО ТЕСТА ДЛЯ ПРОВЕРКИ ВЫСОТЫ ПОЛЕЙ
+2023-16-10/03/23 11:16:31 INFO ЗАПУСК ПОЗИТИВНОГО ТЕСТА ДЛЯ ПРОВЕРКИ ЦВЕТА КНОПКИ ВХОДА
+2023-16-10/03/23 11:16:31 INFO ЗАПУСК ПОЗИТИВНОГО ТЕСТА ДЛЯ ПРОВЕРКИ ВХОДА ПОЛЬЗОВАТЕЛЯ В АККАУНТ
+2023-16-10/03/23 11:16:33 INFO ЗАПУСК ПОЗИТИВНОГО ТЕСТА ДЛЯ ПРОВЕРКИ СОЗДАНИЯ ПОСТА ПО ПОЛЮ TITLE
+2023-16-10/03/23 11:16:34 INFO ЗАПУСК ПОЗИТИВНОГО ТЕСТА ДЛЯ ПРОВЕРКИ ОТКРЫТИЯ ФОРМЫ "CONTACT_US"
+2023-16-10/03/23 11:16:37 INFO ЗАПУСК ПОЗИТИВНОГО ТЕСТА ДЛЯ ПРОВЕРКИ ЗАПОЛНЕНИЯ ФОРМЫ "CONTACT_US" И ОТПРАВКИ ДАННЫХ
+2023-16-10/03/23 11:16:37 INFO Получаем текст из alert
+2023-16-10/03/23 11:16:39 INFO Закрываем alert
