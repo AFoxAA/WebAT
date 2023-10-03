@@ -6,3 +6,8 @@ from .err_package import AlertError
 from .err_package import TextInputError
 from .err_package import ErrorWhenClicking
 from .err_package import ErrorReceivingText
+from .err_package import ErrorReceivingToken
+from .err_package import ErrorEntranceInvalidUrl
+from .err_package import InvalidUrlCreatePost
+from .err_package import ErrorReceivingPostRequest
+from .err_package import ErrorApi
